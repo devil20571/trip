@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 台東四天三夜親子旅行指南</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #23201d;
+      --muted: #6e665d;
+      --line: #ddd4c8;
+      --accent: #2f7d73;
+      --accent-2: #b75f2a;
+      --soft: #e7f1ec;
+      --visited: #a75220;
+      --visited-soft: #fff0df;
+      --visited-line: #edc29a;
+      --warn: #fff1d6;
+      --shadow: 0 10px 30px rgba(55, 43, 31, .09);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); }
+
+    .wrap {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 34px 0 18px;
+      background: linear-gradient(180deg, #fffaf1 0%, rgba(255, 250, 241, 0) 100%);
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 42px 0 16px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #244b46;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      background: rgba(247, 244, 239, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav .wrap {
+      display: flex;
+      gap: 8px;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .day-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fffaf1;
+    }
+
+    .day-card strong {
+      display: block;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      background: var(--soft);
+      border-radius: 10px;
+      color: #244b46;
+    }
+
+    .warn {
+      border-left-color: var(--accent-2);
+      background: var(--warn);
+      color: #664019;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 11px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #efe8dd;
+      font-weight: 750;
+    }
+
+    tr:nth-child(even) td { background: #fffaf2; }
+
+    .time {
+      width: 82px;
+      white-space: nowrap;
+      font-weight: 750;
+      color: #503b2a;
+    }
+
+    .map {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 9px;
+      margin: 2px 3px 2px 0;
+      border-radius: 999px;
+      background: #e7f1ec;
+      border: 1px solid #c6ded5;
+      color: #1f625a;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .map.actual-visited {
+      background: var(--visited-soft);
+      border-color: var(--visited-line);
+      color: var(--visited);
+      box-shadow: inset 0 0 0 1px rgba(167, 82, 32, .08);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul, ol { padding-left: 22px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .compact-list li { margin: 4px 0; }
+
+    .footer {
+      padding: 30px 0 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .grid, .two-col { grid-template-columns: 1fr; }
+      .hero, section { padding: 18px; border-radius: 14px; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+      th, td { min-width: 140px; white-space: normal; }
+      .time { min-width: 76px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="hero">
+        <h1>2026 台東四天三夜親子旅行指南</h1>
+        <p>台中出發，走池上、鹿野、台東市。以兩大兩小（2 歲、4 歲）節奏規劃，保留午睡、冷氣、補水與彈性刪行程空間。</p>
+        <div class="meta">
+          <span class="pill">2026/07/23（四）- 07/26（日）</span>
+          <span class="pill">台中 → 池上 → 鹿野 → 台東市 → 台中</span>
+          <span class="pill">熱氣球只看升空，不排繫留</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#overview">總覽</a>
+      <a href="#fuel">補油</a>
+      <a href="#weather">天氣</a>
+      <a href="#day1">Day 1</a>
+      <a href="#day2">Day 2</a>
+      <a href="#day3">Day 3</a>
+      <a href="#day4">Day 4</a>
+      <a href="#checklist">清單</a>
+      <a href="#actual">實際紀錄</a>
+      <a href="#refs">參考附件</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="overview">
+      <h2>行程總覽</h2>
+      <div class="grid">
+        <div class="day-card">
+          <strong>7/23（四）</strong>
+          <div>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8E%8A%E7%A8%BC%E7%86%9F%E4%BA%863%E6%B0%91%E5%AE%BF%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">莊稼熟了 3</a></div>
+          <p>台中出發、伯朗大道夕陽電動車。南迴景點最多選一個。</p>
+        </div>
+        <div class="day-card">
+          <strong>7/24（五）</strong>
+          <div>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%96%B9%E4%BE%86%E5%AF%8C%E8%8E%8A%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">大方來富莊園</a></div>
+          <p>池上慢玩、鹿野入住。路線不折返，下午讓孩子午睡。</p>
+        </div>
+        <div class="day-card">
+          <strong>7/25（六）</strong>
+          <div>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL</a></div>
+          <p>鹿野高台熱氣球、史前館、鐵花新聚落。清晨後保留回籠覺。</p>
+        </div>
+        <div class="day-card">
+          <strong>7/26（日）</strong>
+          <div>回台中</div>
+          <p>飯店泳池、返程。吃飽、上廁所、補水後再開長途。</p>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="map actual-visited">實際有去過</span>
+        <span class="map">候選 / 原規劃</span>
+      </div>
+    </section>
+
+    <section id="fuel">
+      <h2>快速參考：補油與停靠</h2>
+      <table>
+        <thead><tr><th>路段</th><th>加油站</th><th>建議用法</th></tr></thead>
+        <tbody>
+          <tr><td>枋寮 → 南迴前</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8A%A0%E7%A5%BF%E7%AB%99" target="_blank" rel="noopener">中油加祿站</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%A5%93%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">中油楓港站</a></td><td>Day 1 午餐後油量低於一半，就先補滿再進南迴。</td></tr>
+          <tr><td>南迴台東側</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%A4%A7%E6%AD%A6%E7%AB%99" target="_blank" rel="noopener">中油大武站</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%A4%AA%E9%BA%BB%E9%87%8C%E7%AB%99" target="_blank" rel="noopener">中油太麻里站</a></td><td>適合作為孩子醒來後的上廁所、伸展休息點。</td></tr>
+          <tr><td>台東市外圍</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8D%91%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">中油卑南站</a></td><td>Day 3 進台東市前或 Day 4 返程前可補油。</td></tr>
+          <tr><td>縱谷住宿區</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E9%B9%BF%E9%87%8E%E7%AB%99" target="_blank" rel="noopener">中油鹿野站</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E9%97%9C%E5%B1%B1%E7%AB%99" target="_blank" rel="noopener">中油關山站</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%B1%A0%E4%B8%8A%E7%AB%99" target="_blank" rel="noopener">中油池上站</a></td><td>Day 1 抵池上後、Day 2 關山午餐前後、Day 3 鹿野出發前都可彈性補。</td></tr>
+        </tbody>
+      </table>
+      <p class="note">補油策略：長途日不要等油量太低。Day 1 進南迴前優先補滿；Day 4 離開台東市前補到安心，再把大武或楓港當中段休息點。</p>
+    </section>
+
+    <section id="weather">
+      <h2>週末天氣與行程提醒</h2>
+      <p>更新時間：2026/07/22。7/23、7/24 以晴熱為主；7/25 起台東、鹿野、池上轉為陰天並有短暫陣雨或雷雨機率。熱氣球是否升空會受即時風雨與風速影響，出門前仍要看官方公告。</p>
+      <table>
+        <thead>
+          <tr><th>日期</th><th>區域</th><th>天氣趨勢</th><th>行程影響</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7/23（四）</td><td>枋寮 / 南迴 / 池上</td><td>枋寮多雲到晴時多雲，約 26-32°C；池上晴時多雲，約 24-34°C。</td><td>長途移動可行，中午偏熱，午餐和休息點以冷氣、廁所方便為優先。</td></tr>
+          <tr><td>7/24（五）</td><td>池上 / 關山 / 鹿野</td><td>池上、鹿野多為晴時多雲，約 24-34°C，紫外線偏強。</td><td>米國學校、宏昌客家菜館、新元昌紅茶可照排；戶外點短停即可，下午讓孩子午睡。</td></tr>
+          <tr><td>7/25（六）</td><td>鹿野 / 初鹿 / 台東市</td><td>鹿野、池上轉陰並有短暫陣雨或雷雨；台東市陰時多雲短暫陣雨，約 26-32°C。</td><td>清晨熱氣球要看現場公告；初鹿牧場列為可刪，下午史前館比戶外更穩。</td></tr>
+          <tr><td>7/26（日）</td><td>台東市 / 南迴返程</td><td>台東市陰短暫陣雨，約 26-32°C；屏東沿線午後仍可能短暫雷陣雨。</td><td>返程先吃飽、上廁所、補水再上路；雨具與替換衣物放車內容易拿的位置。</td></tr>
+        </tbody>
+      </table>
+      <div class="note warn">
+        熱氣球若風雨不佳，現場可能延後或取消升空；到鹿野高台後觀察 30-40 分鐘即可決定是否撤退。Day 3 降雨風險較高，初鹿牧場不要硬排；若地面濕或開始下雨，直接改「莊園休息 → 台東市 → 史前館 / 飯店」。雨衣、輕便傘、擦汗毛巾、替換衣物放同一袋，旅途中會好拿很多。
+      </div>
+    </section>
+
+    <section>
+      <h2>親子旅行原則</h2>
+      <ul>
+        <li>每天最多一個主要景點，其他都是可刪備案。</li>
+        <li>中午前後避免戶外曝曬；2 歲、4 歲最重要的是冷氣、補水、午睡。</li>
+        <li>長途移動日不要貪景點，孩子能順利吃飯、上廁所、睡覺就是成功。</li>
+        <li>熱氣球只看升空拍照，不排繫留體驗。</li>
+        <li>餐點避開生食、炸物為主、燒烤串燒、久候排隊、太辣太重口味。</li>
+      </ul>
+    </section>
+
+    <section id="day1">
+      <h2>Day 1｜7/23（四）台中 → 池上</h2>
+      <p>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8E%8A%E7%A8%BC%E7%86%9F%E4%BA%863%E6%B0%91%E5%AE%BF%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">莊稼熟了 3 民宿</a></p>
+      <p class="note">今日重點：長途移動日。目標是安全抵達池上，傍晚用伯朗大道電動車放鬆，不要把南迴沿線景點全塞滿。</p>
+      <table>
+        <thead><tr><th>時間</th><th>安排</th><th>備註 / 地圖</th></tr></thead>
+        <tbody>
+          <tr><td class="time">07:00</td><td>台中出發</td><td>上車前先上廁所、裝好水壺與零食。</td></tr>
+          <tr><td class="time">09:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E5%B1%B1%E6%9C%8D%E5%8B%99%E5%8D%80" target="_blank" rel="noopener">東山服務區</a></td><td>停留約 20 分鐘，讓孩子上廁所、走一走。</td></tr>
+          <tr><td class="time">11:30</td><td>午餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=枋寮椰們海景餐廳%20Pi%20coconut" target="_blank" rel="noopener">枋寮椰們海景餐廳 Pi coconut</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=阮家茶坊%20枋寮" target="_blank" rel="noopener">阮家茶坊</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=鰻鰻烤韓式餐廳%20屏東" target="_blank" rel="noopener">鰻鰻烤韓式餐廳</a></td></tr>
+          <tr><td class="time">午餐後</td><td>補油 / 廁所提示</td><td>若油量低於一半，先停<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8A%A0%E7%A5%BF%E7%AB%99" target="_blank" rel="noopener">中油加祿站</a>或<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%A5%93%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">中油楓港站</a>補滿再進南迴。</td></tr>
+          <tr><td class="time">13:00</td><td>南迴備案景點擇一</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%9A%E8%89%AF%E8%BB%8A%E7%AB%99" target="_blank" rel="noopener">多良車站</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%87%91%E5%B4%99%20%E9%BA%B5%E5%8C%85%20%E8%94%A5%E6%B2%B9%E9%A4%85" target="_blank" rel="noopener">金崙麵包蔥油餅</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E9%BA%BB%E9%87%8C%E7%A6%8F%E8%88%88%E5%AE%AE" target="_blank" rel="noopener">太麻里福興宮</a>最多選一個，孩子睡著就略過。</td></tr>
+          <tr><td class="time">南迴途中</td><td>休息提示</td><td>孩子醒來想上廁所，可用<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%A4%A7%E6%AD%A6%E7%AB%99" target="_blank" rel="noopener">中油大武站</a>或<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%A4%AA%E9%BA%BB%E9%87%8C%E7%AB%99" target="_blank" rel="noopener">中油太麻里站</a>當休息點。</td></tr>
+          <tr><td class="time">14:30</td><td>入住休息</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8E%8A%E7%A8%BC%E7%86%9F%E4%BA%863%E6%B0%91%E5%AE%BF%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">莊稼熟了 3 民宿</a></td></tr>
+          <tr><td class="time">17:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%AF%E6%9C%97%E5%A4%A7%E9%81%93" target="_blank" rel="noopener">伯朗大道</a></td><td>租有頂棚四人電動車，看夕陽、拍照。</td></tr>
+          <tr><td class="time">19:00</td><td>晚餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%8E%9F%E8%B1%86%E8%85%90%E5%BA%97%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">福原豆腐店</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%B1%A0%E8%B1%86%E7%9A%AE%E5%BA%97%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">大池豆皮店</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E4%B8%8A%E8%B1%86%E4%B9%8B%E9%96%93" target="_blank" rel="noopener">池上豆之間</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=巧本味蔬食人文料理%20池上" target="_blank" rel="noopener">巧本味蔬食人文料理</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=池上好店%20多力米餐廳" target="_blank" rel="noopener">池上好店（多力米餐廳）</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=池上飯包博物館" target="_blank" rel="noopener">池上飯包博物館</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3>沿路午餐候選</h3>
+      <table>
+        <thead><tr><th>優先</th><th>地點</th><th>適合原因</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>首選</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=枋寮椰們海景餐廳%20Pi%20coconut" target="_blank" rel="noopener">枋寮椰們海景餐廳 Pi coconut</a></td><td>海景餐廳，適合長途開車中段下車吃飯、看海、讓孩子換心情。</td><td>出發前確認營業時間與是否需訂位。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=阮家茶坊%20枋寮" target="_blank" rel="noopener">阮家茶坊</a></td><td>枋寮沿線餐飲備案，可作午餐或茶點休息。</td><td>出發前確認營業時間。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=鰻鰻烤韓式餐廳%20屏東" target="_blank" rel="noopener">鰻鰻烤韓式餐廳</a></td><td>海景韓式餐廳，避開牛肉品項，可點飯食、熟食類。</td><td>韓式餐點可能口味較重，點餐時可詢問不辣或兒童可吃品項。</td></tr>
+          <tr><td>休息點</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9E%8B%E5%B1%B1%E8%8C%89%E8%8E%89%E7%81%A3%E6%B5%B7%E6%B4%8B%20Cafe" target="_blank" rel="noopener">枋山茉莉灣海洋 Cafe</a></td><td>海景、停車方便，適合作為飲料與上廁所休息。</td><td>較像咖啡下午茶，不建議當正式午餐。</td></tr>
+          <tr><td>抵台東後備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%AD%A6%E9%98%BF%E6%A2%85%E6%B5%B7%E7%94%A2" target="_blank" rel="noopener">大武阿梅海產</a></td><td>若前面都沒吃，可到南迴台東側補午餐。</td><td>海鮮類避開生食；時間會偏晚，可能影響入住。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>池上晚餐</h3>
+      <table>
+        <thead><tr><th>優先</th><th>餐點</th><th>親子判斷</th></tr></thead>
+        <tbody>
+          <tr><td>首選</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%8E%9F%E8%B1%86%E8%85%90%E5%BA%97%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">福原豆腐店</a></td><td>較適合親子，口味單純。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%B1%A0%E8%B1%86%E7%9A%AE%E5%BA%97%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">大池豆皮店</a></td><td>豆皮類可接受度高，但注意營業時間。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E4%B8%8A%E8%B1%86%E4%B9%8B%E9%96%93" target="_blank" rel="noopener">池上豆之間</a></td><td>適合當點心或輕食備案。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=巧本味蔬食人文料理%20池上" target="_blank" rel="noopener">巧本味蔬食人文料理</a></td><td>蔬食料理，適合想吃清淡一點的晚餐。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=池上好店%20多力米餐廳" target="_blank" rel="noopener">池上好店（多力米餐廳）</a></td><td>售完為止，建議提早確認。</td></tr>
+          <tr><td>備案</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=池上飯包博物館" target="_blank" rel="noopener">池上飯包博物館</a></td><td>池上便當類，親子接受度通常較穩。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="day2">
+      <h2>Day 2｜7/24（五）池上慢玩 → 鹿野</h2>
+      <p>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%96%B9%E4%BE%86%E5%AF%8C%E8%8E%8A%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">大方來富莊園</a></p>
+      <p class="note">今日重點：不折返初鹿，改成池上慢玩後直順移動到鹿野。下午入住後放慢，讓孩子為隔天清晨熱氣球保留體力。</p>
+      <table>
+        <thead><tr><th>時間</th><th>安排</th><th>備註 / 地圖</th></tr></thead>
+        <tbody>
+          <tr><td class="time">08:00</td><td>民宿早餐</td><td>慢慢吃，先補水。</td></tr>
+          <tr><td class="time">出發前</td><td>補油提示</td><td>若 Day 1 沒補滿，可先停<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%B1%A0%E4%B8%8A%E7%AB%99" target="_blank" rel="noopener">中油池上站</a>；到關山午餐前後也可停<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E9%97%9C%E5%B1%B1%E7%AB%99" target="_blank" rel="noopener">中油關山站</a>。</td></tr>
+          <tr><td class="time">09:30</td><td>池上小景點短停</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9D%A1%E6%B1%A0" target="_blank" rel="noopener">大坡池</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E4%B8%8A%E7%A9%80%E5%80%89%E8%97%9D%E8%A1%93%E9%A4%A8" target="_blank" rel="noopener">池上穀倉藝術館</a>擇一，避開曝曬。</td></tr>
+          <tr><td class="time">10:30</td><td>池上 → 關山</td><td>前往米國學校。</td></tr>
+          <tr><td class="time">11:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%B1%B3%E5%9C%8B%E5%AD%B8%E6%A0%A1%20%E9%97%9C%E5%B1%B1%E9%8E%AE%E8%BE%B2%E6%9C%83%E4%BC%91%E9%96%92%E6%97%85%E9%81%8A%E4%B8%AD%E5%BF%83" target="_blank" rel="noopener">米國學校 - 關山鎮農會休閒旅遊中心</a></td><td>先逛逛、拍照、買米相關伴手禮。</td></tr>
+          <tr><td class="time">11:50</td><td>前往午餐</td><td>從米國學校移動到宏昌客家菜館。</td></tr>
+          <tr><td class="time">12:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%8F%E6%98%8C%E5%AE%A2%E5%AE%B6%E8%8F%9C%E9%A4%A8%20%E9%97%9C%E5%B1%B1" target="_blank" rel="noopener">宏昌客家菜館</a></td><td>無菜單 / 預約制，務必先訂位。</td></tr>
+          <tr><td class="time">13:10</td><td>關山 → 鹿野</td><td>車上安排午睡。</td></tr>
+          <tr><td class="time">14:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%85%83%E6%98%8C%E7%B4%85%E8%8C%B6%E7%94%A2%E6%A5%AD%E6%96%87%E5%8C%96%E9%A4%A8" target="_blank" rel="noopener">新元昌紅茶產業文化館</a></td><td>在第二天民宿附近，熱天短停很適合。</td></tr>
+          <tr><td class="time">15:00</td><td>Check-in</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%96%B9%E4%BE%86%E5%AF%8C%E8%8E%8A%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">大方來富莊園</a></td></tr>
+          <tr><td class="time">16:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A5%B3%E5%85%92%E4%B8%8D%E6%87%82%E8%8C%B6%20Daughter%27s%20Tea%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">女兒不懂茶</a></td><td>若孩子精神好再去；不行就直接留在莊園。</td></tr>
+          <tr><td class="time">18:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%AD%A3%E4%B8%80%E8%8C%B6%E5%9C%92%E7%94%B0%E5%AA%BD%E5%AA%BD%E5%82%85%E5%A7%90%E9%A2%A8%E5%91%B3%E9%A4%90" target="_blank" rel="noopener">正一茶園田媽媽傅姐風味餐</a></td><td>訂位時可先問是否有較清淡、適合幼兒的飯麵或湯品。</td></tr>
+          <tr><td class="time">20:00</td><td>回莊園休息</td><td>為隔天 05:20 出門準備。</td></tr>
+        </tbody>
+      </table>
+      <h3>鹿野餐飲備案</h3>
+      <p><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8C%B6%E9%A6%99%E7%89%9B%E8%82%89%E9%BA%B5%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">茶香牛肉麵</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E4%BE%86%E8%8C%B6%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">天來茶園</a></p>
+      <h3>池上小景點備案</h3>
+      <table>
+        <thead><tr><th>景點</th><th>親子判斷</th></tr></thead>
+        <tbody>
+          <tr><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9D%A1%E6%B1%A0" target="_blank" rel="noopener">大坡池</a></td><td>湖邊散步、看風景，不太耗體力。</td></tr>
+          <tr><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%A0%E4%B8%8A%E7%A9%80%E5%80%89%E8%97%9D%E8%A1%93%E9%A4%A8" target="_blank" rel="noopener">池上穀倉藝術館</a></td><td>室內藝文點，適合短停 30-45 分鐘。</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>Day 2 不跑初鹿，路線會比原本更順。</li>
+        <li>宏昌客家菜館是無菜單 / 預約制，建議先確認人數、孩子可吃的菜色與用餐時間。</li>
+        <li>晚上盡量 20:30 前收工，隔天清晨才不會太累。</li>
+      </ul>
+    </section>
+
+    <section id="day3">
+      <h2>Day 3｜7/25（六）鹿野熱氣球 → 初鹿 → 台東市</h2>
+      <p>住宿：<a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL</a></p>
+      <p class="note">今日重點：熱氣球後先回莊園吃早餐與短休息，再把初鹿牧場放在鹿野往台東市的順路段。若孩子太累，初鹿牧場可直接刪掉。</p>
+      <table>
+        <thead><tr><th>時間</th><th>安排</th><th>備註 / 地圖</th></tr></thead>
+        <tbody>
+          <tr><td class="time">05:20</td><td>出發前往鹿野高台</td><td>車程約 10 分鐘；帶薄外套。</td></tr>
+          <tr><td class="time">05:30</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E9%87%8E%E9%AB%98%E5%8F%B0" target="_blank" rel="noopener">鹿野高台看熱氣球</a></td><td>晨間升空、拍照、野餐墊休息。不排繫留體驗。</td></tr>
+          <tr><td class="time">08:00</td><td>返回莊園早餐</td><td>回來後先吃、先補水。</td></tr>
+          <tr><td class="time">08:30</td><td>回房間短休息</td><td>休息 60-90 分鐘，至少讓孩子躺一下。</td></tr>
+          <tr><td class="time">10:00</td><td>退房</td><td>慢慢整理，別急。</td></tr>
+          <tr><td class="time">退房後</td><td>補油提示</td><td>若油量不到一半，可先停<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E9%B9%BF%E9%87%8E%E7%AB%99" target="_blank" rel="noopener">中油鹿野站</a>；進台東市前也可用<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8D%91%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">中油卑南站</a>。</td></tr>
+          <tr><td class="time">10:30</td><td>前往初鹿牧場</td><td>鹿野往台東市方向順路，不再折返。</td></tr>
+          <tr><td class="time">11:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%88%9D%E9%B9%BF%E7%89%A7%E5%A0%B4" target="_blank" rel="noopener">初鹿牧場</a></td><td>餵牛、草地短玩、吃鮮奶冰淇淋。注意防蚊。</td></tr>
+          <tr><td class="time">12:15</td><td>牧場內午餐 / 點心</td><td>不再另外找餐廳，減少移動折騰。</td></tr>
+          <tr><td class="time">13:00</td><td>初鹿 → 台東市</td><td>車上安排午睡。</td></tr>
+          <tr><td class="time">14:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E5%8F%B2%E5%89%8D%E6%96%87%E5%8C%96%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener">國立臺灣史前文化博物館</a></td><td>若孩子有睡到就進館；若太累，改成飯店附近休息。</td></tr>
+          <tr><td class="time">16:30</td><td>Check-in</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL</a></td></tr>
+          <tr><td class="time">18:00</td><td>晚餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A5%BD%E6%BC%81%E6%97%A5%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">好漁日</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%90%B5%E8%8A%B1%E5%B0%8F%E8%B7%AF%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">鐵花小路</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%BE%A1%E5%93%81%E5%B7%9D%E5%91%B3%E5%B0%8F%E9%A4%A8%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">御品川味小館</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%A6%95%E6%A8%B9%E4%B8%8B%E7%B1%B3%E8%8B%94%E7%9B%AE%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">榕樹下米苔目</a></td></tr>
+          <tr><td class="time">19:30</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%90%B5%E8%8A%B1%E6%96%B0%E8%81%9A%E8%90%BD%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">鐵花新聚落</a></td><td>散步、彩繪燈籠、吹晚風。</td></tr>
+          <tr><td class="time">20:30</td><td>回飯店休息</td><td>不要硬撐夜市。</td></tr>
+        </tbody>
+      </table>
+      <div class="two-col">
+        <div>
+          <h3>熱氣球攜帶</h3>
+          <ul class="compact-list">
+            <li>野餐墊</li>
+            <li>麵包、牛奶、水壺</li>
+            <li>薄外套</li>
+            <li>防蚊液</li>
+          </ul>
+        </div>
+        <div>
+          <h3>飲料</h3>
+          <p><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%AE%E5%93%A5%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">叮哥</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%9A%B1%E5%B1%B1%E8%8C%B6%E9%81%93%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">隱山茶道</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9E%9C%E7%8F%8D%E6%BF%83%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">果珍濃</a></p>
+        </div>
+      </div>
+      <div class="note warn">
+        初鹿牧場是可刪行程；若孩子看完熱氣球已經累，直接跳過初鹿，改走「莊園休息 → 台東市 → 史前館 / 飯店」。
+      </div>
+    </section>
+
+    <section id="day4">
+      <h2>Day 4｜7/26（日）台東市 → 台中</h2>
+      <p class="note">今日重點：返程日。台東市區吃飽、上廁所、補水後再出發，讓孩子上車直接午睡。</p>
+      <table>
+        <thead><tr><th>時間</th><th>安排</th><th>備註 / 地圖</th></tr></thead>
+        <tbody>
+          <tr><td class="time">08:30</td><td>飯店早餐</td><td>慢慢吃。</td></tr>
+          <tr><td class="time">09:30</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL 泳池</a></td><td>視體力決定；若泳池因天候暫停，就在房間收行李。</td></tr>
+          <tr><td class="time">10:30</td><td>退房</td><td>整理行李、上廁所。</td></tr>
+          <tr><td class="time">退房後</td><td>補油提示</td><td>台東市出發前先補到安心；往南迴前可用<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8D%91%E5%8D%97%E7%AB%99" target="_blank" rel="noopener">中油卑南站</a>作最後確認點。</td></tr>
+          <tr><td class="time">11:00</td><td>出發返程</td><td>若孩子餓，先在市區吃完或外帶。</td></tr>
+          <tr><td class="time">12:00</td><td>台東市區午餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=小時候早午餐%20台東" target="_blank" rel="noopener">小時候早午餐</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=馬利諾廚房%20台東" target="_blank" rel="noopener">馬利諾廚房</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=小陳麵舖%20台東" target="_blank" rel="noopener">小陳麵舖</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=愛瓦Brunch%20台東" target="_blank" rel="noopener">愛瓦Brunch</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=丸八餐廳%20台東" target="_blank" rel="noopener">丸八餐廳</a></td></tr>
+          <tr><td class="time">南迴途中</td><td>休息提示</td><td>中段可停<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%A4%A7%E6%AD%A6%E7%AB%99" target="_blank" rel="noopener">中油大武站</a>；進屏東側後可用<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%A5%93%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">中油楓港站</a>或枋山休息點。</td></tr>
+          <tr><td class="time">15:00</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9E%8B%E5%B1%B1%20%E4%BC%91%E6%81%AF%E7%AB%99" target="_blank" rel="noopener">枋山休息</a></td><td>下車舒展、看海、買飲料。</td></tr>
+          <tr><td class="time">18:30</td><td>抵達台中</td><td>視路況保守估計。</td></tr>
+        </tbody>
+      </table>
+      <h3>Day 4 台東市區午餐候選</h3>
+      <table>
+        <thead><tr><th>來源</th><th>餐廳</th><th>親子判斷</th></tr></thead>
+        <tbody>
+          <tr><td>參考附件</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=小時候早午餐%20台東" target="_blank" rel="noopener">小時候早午餐</a></td><td>中西式早午餐，選擇多，營業到 14:00，適合返程前吃飽再上路。</td></tr>
+          <tr><td>參考附件</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=馬利諾廚房%20台東" target="_blank" rel="noopener">馬利諾廚房</a></td><td>麵包、白醬類較容易給小孩吃，適合作為不想吃太重口味的備案。</td></tr>
+          <tr><td>參考附件</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=小陳麵舖%20台東" target="_blank" rel="noopener">小陳麵舖</a></td><td>簡單麵食備案，適合快速吃完上路。</td></tr>
+          <tr><td>另外推薦</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=愛瓦Brunch%20台東" target="_blank" rel="noopener">愛瓦Brunch</a></td><td>有兒童遊戲區與兒童餐，營業到 14:00，適合 2 歲、4 歲放電一下。</td></tr>
+          <tr><td>另外推薦</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=丸八餐廳%20台東" target="_blank" rel="noopener">丸八餐廳</a></td><td>台菜合菜，午餐時段明確，可訂位；多人用餐比較好點熟食與湯品。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="checklist">
+      <h2>出發前檢查清單</h2>
+      <div class="two-col">
+        <div>
+          <h3>預約與確認</h3>
+          <ul>
+            <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%AD%A3%E4%B8%80%E8%8C%B6%E5%9C%92%E7%94%B0%E5%AA%BD%E5%AA%BD%E5%82%85%E5%A7%90%E9%A2%A8%E5%91%B3%E9%A4%90" target="_blank" rel="noopener">正一茶園田媽媽傅姐風味餐</a>：訂位，並詢問幼兒清淡餐點。</li>
+            <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%8F%E6%98%8C%E5%AE%A2%E5%AE%B6%E8%8F%9C%E9%A4%A8%20%E9%97%9C%E5%B1%B1" target="_blank" rel="noopener">宏昌客家菜館</a>：Day 2 午餐，無菜單 / 預約制，務必先訂位。</li>
+            <li>Day 1 午餐：<a class="map" href="https://www.google.com/maps/search/?api=1&query=枋寮椰們海景餐廳%20Pi%20coconut" target="_blank" rel="noopener">枋寮椰們海景餐廳 Pi coconut</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=阮家茶坊%20枋寮" target="_blank" rel="noopener">阮家茶坊</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=鰻鰻烤韓式餐廳%20屏東" target="_blank" rel="noopener">鰻鰻烤韓式餐廳</a>出發前確認營業與訂位。</li>
+            <li>Day 1 加油：枋寮午餐後油量低於一半，優先在<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E5%8A%A0%E7%A5%BF%E7%AB%99" target="_blank" rel="noopener">中油加祿站</a>或<a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%B2%B9%E6%A5%93%E6%B8%AF%E7%AB%99" target="_blank" rel="noopener">中油楓港站</a>補滿。</li>
+            <li>Day 4 午餐：<a class="map" href="https://www.google.com/maps/search/?api=1&query=小時候早午餐%20台東" target="_blank" rel="noopener">小時候早午餐</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=馬利諾廚房%20台東" target="_blank" rel="noopener">馬利諾廚房</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=小陳麵舖%20台東" target="_blank" rel="noopener">小陳麵舖</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=愛瓦Brunch%20台東" target="_blank" rel="noopener">愛瓦Brunch</a><a class="map" href="https://www.google.com/maps/search/?api=1&query=丸八餐廳%20台東" target="_blank" rel="noopener">丸八餐廳</a>擇一，出發前確認營業與訂位。</li>
+            <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%AF%E6%9C%97%E5%A4%A7%E9%81%93%20%E9%9B%BB%E5%8B%95%E8%BB%8A" target="_blank" rel="noopener">伯朗大道四人電動車</a>：確認可否預約、有頂棚車款。</li>
+            <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E5%8F%B2%E5%89%8D%E6%96%87%E5%8C%96%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener">史前館</a>：確認兒童探索區是否需預約。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>必帶物品</h3>
+          <ul>
+            <li>折疊推車、野餐墊、大容量水壺</li>
+            <li>防曬帽、薄外套、防蚊液</li>
+            <li>車上零食、兒童濕紙巾、備用衣物</li>
+            <li>泳衣、泳帽、小垃圾袋</li>
+            <li>常備藥、退燒藥、暈車用品</li>
+          </ul>
+        </div>
+      </div>
+      <h3>必玩 TOP 5</h3>
+      <ol>
+        <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E9%87%8E%E9%AB%98%E5%8F%B0" target="_blank" rel="noopener">鹿野高台熱氣球晨間升空</a></li>
+        <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%88%9D%E9%B9%BF%E7%89%A7%E5%A0%B4" target="_blank" rel="noopener">初鹿牧場餵牛吃冰</a></li>
+        <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%AF%E6%9C%97%E5%A4%A7%E9%81%93" target="_blank" rel="noopener">伯朗大道夕陽電動車</a></li>
+        <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E5%8F%B2%E5%89%8D%E6%96%87%E5%8C%96%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener">國立臺灣史前文化博物館</a></li>
+        <li><a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL 泳池</a> / <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%90%B5%E8%8A%B1%E6%96%B0%E8%81%9A%E8%90%BD%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">鐵花新聚落夜間散步</a></li>
+      </ol>
+    </section>
+
+    <section id="actual">
+        <h2>2026 實際行程紀錄：明年參考</h2>
+        <h3>回訪優先清單</h3>
+        <table>
+          <thead><tr><th>類型</th><th>地點</th><th>實際心得</th></tr></thead>
+          <tbody>
+            <tr><td>午餐 / 海景</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9E%8B%E5%AF%AE%E6%A4%B0%E5%80%91%E6%B5%B7%E6%99%AF%E9%A4%90%E5%BB%B3%20Pi%20coconut" target="_blank" rel="noopener">枋寮椰們海景餐廳 Pi coconut</a></td><td>餐點不錯，窗外風景漂亮。</td></tr>
+            <tr><td>飲料</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%AE%E5%93%A5%E8%8C%B6%E9%A3%B2%20%E6%B1%A0%E4%B8%8A%E5%BA%97" target="_blank" rel="noopener">叮哥茶飲池上店</a></td><td>好喝，可回購。</td></tr>
+            <tr><td>滷味</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E6%9D%91%E6%BB%B7%E5%91%B3%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">小村滷味</a></td><td>好吃，可回購。</td></tr>
+            <tr><td>午餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%8F%E6%98%8C%E5%AE%A2%E5%AE%B6%E8%8F%9C%E9%A4%A8%20%E9%97%9C%E5%B1%B1" target="_blank" rel="noopener">宏昌客家菜館</a></td><td>好吃、親子友善，下次再訪。</td></tr>
+            <tr><td>住宿</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%96%B9%E4%BE%86%E5%AF%8C%E8%8E%8A%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">大方來富莊園</a></td><td>不錯，明年可回訪。</td></tr>
+            <tr><td>親子景點</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E5%8F%B2%E5%89%8D%E6%96%87%E5%8C%96%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener">國立臺灣史前文化博物館</a></td><td>遛小孩不錯。</td></tr>
+            <tr><td>午餐 / 麵食</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%A6%95%E6%A8%B9%E4%B8%8B%E7%B1%B3%E8%8B%94%E7%9B%AE%20%E5%B0%8F%E6%BB%BF%E9%9B%A8%E7%94%9F%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">榕樹下米苔目小滿雨生</a></td><td>好吃，下次可再訪。</td></tr>
+            <tr><td>住宿</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=THE%20GAYA%20HOTEL%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">THE GAYA HOTEL</a></td><td>還行，可回訪。</td></tr>
+            <tr><td>飲料</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%9A%B1%E5%B1%B1%E8%8C%B6%E9%81%93%20%E6%BC%A2%E9%99%BD%E5%BA%97%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">隱山茶道 漢陽店</a></td><td>好喝，可回訪。</td></tr>
+            <tr><td>返程午餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%98%AE%E5%AE%B6%E8%8C%B6%E5%9D%8A%20%E6%9E%8B%E5%AF%AE" target="_blank" rel="noopener">阮家茶坊</a></td><td>不錯，可回訪。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>去過一次即可</h3>
+        <table>
+          <thead><tr><th>類型</th><th>地點</th><th>實際心得</th></tr></thead>
+          <tbody>
+            <tr><td>便當</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%85%A8%E7%BE%8E%E8%A1%8C%E6%B1%A0%E4%B8%8A%E9%90%B5%E8%B7%AF%E4%BE%BF%E7%95%B6" target="_blank" rel="noopener">全美行池上鐵路便當</a></td><td>嘗試過一次就好。</td></tr>
+            <tr><td>景點</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9D%A1%E6%B1%A0" target="_blank" rel="noopener">大坡池</a></td><td>蠻無聊，去過一次就好。</td></tr>
+            <tr><td>景點 / 茶文化</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%85%83%E6%98%8C%E7%B4%85%E8%8C%B6%E7%94%A2%E6%A5%AD%E6%96%87%E5%8C%96%E9%A4%A8" target="_blank" rel="noopener">新元昌紅茶產業文化館</a></td><td>去過一次就好。</td></tr>
+            <tr><td>晚餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%AD%A3%E4%B8%80%E8%8C%B6%E5%9C%92%E7%94%B0%E5%AA%BD%E5%AA%BD%E5%82%85%E5%A7%90%E9%A2%A8%E5%91%B3%E9%A4%90" target="_blank" rel="noopener">正一茶園田媽媽傅姐風味餐</a></td><td>普普，下次可選別家晚餐。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>下次避開或降低期待</h3>
+        <table>
+          <thead><tr><th>類型</th><th>地點</th><th>實際心得</th></tr></thead>
+          <tbody>
+            <tr><td>晚餐</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%83%8F%E9%BE%8D%E9%99%A2%E5%AE%B6%E5%BA%AD%E9%A3%9F%E5%A0%82%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">烏龍院家庭食堂</a></td><td>不好吃。</td></tr>
+            <tr><td>點心</td><td><a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%B1%A0%E8%B1%86%E7%9A%AE%E5%BA%97%20%E6%B1%A0%E4%B8%8A" target="_blank" rel="noopener">大池豆皮店</a></td><td>好吃，但環境蒼蠅多。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Day 1 實際紀錄</h3>
+        <table>
+          <thead><tr><th>時段</th><th>實際安排</th><th>明年備註</th></tr></thead>
+          <tbody>
+            <tr><td>午餐</td><td>枋寮椰們海景餐廳 Pi coconut</td><td>餐點不錯，窗外風景漂亮。</td></tr>
+            <tr><td>南迴景點</td><td>多良車站</td><td>已去過，可視天氣與孩子狀況決定是否再排。</td></tr>
+            <tr><td>住宿</td><td>莊稼熟了 3 民宿</td><td>實際入住。</td></tr>
+            <tr><td>下午</td><td>伯朗大道租車</td><td>租車不錯，可保留。</td></tr>
+            <tr><td>晚餐</td><td>全美行池上鐵路便當</td><td>嘗試過一次就好。</td></tr>
+            <tr><td>飲料 / 宵夜</td><td>叮哥茶飲池上店、小村滷味</td><td>兩間都可回購。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Day 2 實際紀錄</h3>
+        <table>
+          <thead><tr><th>時段</th><th>實際安排</th><th>明年備註</th></tr></thead>
+          <tbody>
+            <tr><td>早餐</td><td>民宿早餐</td><td>好吃。</td></tr>
+            <tr><td>點心</td><td>大池豆皮店</td><td>好吃，但環境蒼蠅多。</td></tr>
+            <tr><td>景點</td><td>大坡池</td><td>蠻無聊，去過一次就好。</td></tr>
+            <tr><td>購物</td><td>米國學校、關山永全花生酥</td><td>適合買伴手禮。</td></tr>
+            <tr><td>午餐</td><td>宏昌客家菜館</td><td>好吃、親子友善，下次再訪。</td></tr>
+            <tr><td>景點</td><td>新元昌紅茶產業文化館</td><td>去過一次就好。</td></tr>
+            <tr><td>住宿</td><td>大方來富莊園</td><td>不錯，明年回訪。</td></tr>
+            <tr><td>晚餐</td><td>正一茶園田媽媽傅姐風味餐</td><td>普普，下次可選別家晚餐。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Day 3 實際紀錄</h3>
+        <table>
+          <thead><tr><th>時段</th><th>實際安排</th><th>明年備註</th></tr></thead>
+          <tbody>
+            <tr><td>清晨</td><td>熱氣球取消</td><td>颱風影響取消，明年再訪。</td></tr>
+            <tr><td>早餐</td><td>民宿早餐</td><td>實際用餐。</td></tr>
+            <tr><td>景點</td><td>國立臺灣史前文化博物館</td><td>遛小孩不錯。</td></tr>
+            <tr><td>午餐</td><td>榕樹下米苔目小滿雨生</td><td>好吃，下次可再訪。</td></tr>
+            <tr><td>購物</td><td>蕃薯伯、連成記</td><td>分別買地瓜酥、芋頭酥。</td></tr>
+            <tr><td>住宿</td><td>THE GAYA HOTEL</td><td>還行，可回訪。</td></tr>
+            <tr><td>晚餐</td><td>烏龍院家庭食堂</td><td>不好吃。</td></tr>
+            <tr><td>餐後</td><td>鐵花新聚落散步</td><td>可保留短散步。</td></tr>
+          </tbody>
+        </table>
+        <p>下次預計去：
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%BB%83%E8%A8%98%E8%94%A5%E6%B2%B9%E9%A4%85%20%E5%BE%AE%E5%85%89%E5%BA%97%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">黃記蔥油餅《微光店》</a>
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E6%9D%B1%E7%A5%9E%E8%BE%B2%E9%9D%92%E8%8D%89%E8%8C%B6" target="_blank" rel="noopener">台東神農青草茶</a>
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E5%BC%8F%E8%94%A5%E9%A4%85%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">花式蔥餅</a>
+        </p>
+
+        <h3>Day 4 實際紀錄</h3>
+        <table>
+          <thead><tr><th>時段</th><th>實際安排</th><th>明年備註</th></tr></thead>
+          <tbody>
+            <tr><td>早餐</td><td>飯店早餐</td><td>實際用餐。</td></tr>
+            <tr><td>飲料</td><td>隱山茶道 漢陽店</td><td>好喝，可回訪。</td></tr>
+            <tr><td>返程購物</td><td>美鳳釋迦</td><td>可作返程伴手禮點。</td></tr>
+            <tr><td>午餐</td><td>阮家茶坊</td><td>不錯，可回訪。</td></tr>
+            <tr><td>休息站</td><td>關廟休息站、南投休息站</td><td>返程實際停靠。</td></tr>
+          </tbody>
+        </table>
+    </section>
+
+    <section id="refs">
+      <h2>參考附件：Threads 台東推薦整理</h2>
+      <h3>台東市</h3>
+      <p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%90%B5%E8%8A%B1%E6%9D%91%20%E6%9D%91%E9%95%B7%E7%9A%84%E5%AE%B6%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">鐵花村 / 村長的家</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E6%9D%B1%E6%B5%B7%E6%BF%B1%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">海濱公園</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E6%9D%B1%E7%8E%84%E6%BF%9F%E5%AE%AE" target="_blank" rel="noopener">台東玄濟宮</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E6%BB%BF%E9%9B%A8%E7%94%9F%E7%B1%B3%E8%8B%94%E7%9B%AE%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">小滿雨生米苔目</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%93%A9%E5%8E%9A%E5%86%B0%E6%9E%9C%E5%AE%A4%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">哩厚冰果室</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%B6%A0%E7%94%9F%E6%B4%BB%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">綠生活</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%9D%90%E4%B8%8A%E5%86%B0%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">坐上冰</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%B6%E6%A1%91%E8%B1%86%E8%8A%B1%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">寶桑豆花</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E4%BC%AF%E8%B1%86%E8%8A%B1%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">大伯豆花</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B4%A5%E8%8A%B3%E5%86%B0%E5%9F%8E%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">津芳冰城</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%BD%BC%E5%BE%B7%E5%AE%B6%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">彼德家</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E6%99%82%E5%80%99%E6%97%A9%E5%8D%88%E9%A4%90%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">小時候早午餐</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E7%89%B9%E5%92%96%E5%95%A1%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">海特咖啡</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%BE%86%E9%A1%86%E7%83%A4%E9%A3%AF%E7%B3%B0%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">來顆烤飯糰</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%89%BF%E5%AF%B6%E9%AF%9B%E9%AD%9A%E7%87%92%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">承寶鯛魚燒</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%B0%8F%E9%99%B3%E9%BA%B5%E8%88%96%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">小陳麵舖</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E6%B8%AF%E5%9B%A1%E4%BB%94%E8%85%B3%E5%BA%AB%E9%A3%AF%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">鹿港囡仔腳庫飯</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%B9%98%E8%A8%98%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">湘記</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%B6%8A%E9%84%89%E8%B6%8A%E5%BC%8F%E5%B0%8F%E9%A4%A8%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">越鄉越式小館</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%BF%AA%E8%BF%AA%E5%8A%A0%E5%BF%AB%E7%85%AE%E9%8D%8B%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">迪迪加快煮鍋</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%9A%AE%E7%9A%AE%E5%A3%BD%E5%8F%B8%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">皮皮壽司</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%A6%AC%E5%88%A9%E8%AB%BE%E5%BB%9A%E6%88%BF%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">馬利諾廚房</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%9B%A8%E7%94%B0%E5%AE%B6%E9%A6%AC%E5%8D%A1%E9%BE%8D%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">雨田家馬卡龍</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E7%B2%BE%E8%BC%AA%E7%A7%9F%E8%BB%8A%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">精輪租車</a>
+      </p>
+
+      <h3>鹿野</h3>
+      <p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E9%87%8E%E9%AB%98%E5%8F%B0" target="_blank" rel="noopener">鹿野高台 / 熱氣球嘉年華</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%85%83%E6%98%8C%E7%B4%85%E8%8C%B6%E7%94%A2%E6%A5%AD%E6%96%87%E5%8C%96%E9%A4%A8" target="_blank" rel="noopener">新元昌紅茶產業文化館</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E4%BE%86%E8%8C%B6%E5%9C%92%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">天來茶園</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%8C%B6%E9%A6%99%E7%89%9B%E8%82%89%E9%BA%B5%20%E9%B9%BF%E9%87%8E" target="_blank" rel="noopener">茶香牛肉麵</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%A5%B3%E5%85%92%E4%B8%8D%E6%87%82%E8%8C%B6%20Daughter%27s%20Tea%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">女兒不懂茶</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%A2%A8%E8%BF%A6%E5%88%9D%E8%B5%B0%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">梨迦初走</a>
+      </p>
+
+      <h3>其他地區</h3>
+      <p>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E5%BB%B6%E5%B9%B3%E8%9D%B4%E8%9D%B6%E8%B0%B7%E7%A7%98%E5%A2%83" target="_blank" rel="noopener">延平蝴蝶谷秘境</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E8%9C%BB%E8%9C%93%E9%BB%9E%E8%8C%B6%20%E5%8F%B0%E6%9D%B1" target="_blank" rel="noopener">蜻蜓點茶</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E4%BB%99%E5%8F%B0" target="_blank" rel="noopener">三仙台</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E8%88%88%E9%A6%99Q%E6%A2%85%E8%82%89" target="_blank" rel="noopener">東興香Q梅肉</a>
+      </p>
+
+      <h3>先不排的餐點</h3>
+      <p>花氏蔥餅 / 花式蔥餅、葉氏海鮮、林家臭豆腐、台客夫妻串燒、東鄉碳烤雞排、新生路無煙串燒烤、黃記蔥油餅、阿鋐炸雞、黑松羊肉爐、潘媽媽手作廚房。</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    來源參考：台東觀光旅遊網、臺灣國際熱氣球嘉年華官方網站、國立臺灣史前文化博物館、THE GAYA HOTEL、中央氣象署、沿路午餐點與台東市區親子午餐資料。Google Maps 連結使用搜尋連結，出發前仍建議確認營業時間與導航結果。
+  </footer>
+  <script>
+    (() => {
+      const actualVisitedTerms = [
+        "枋寮椰們海景餐廳",
+        "多良車站",
+        "莊稼熟了 3",
+        "伯朗大道",
+        "阮家茶坊",
+        "全美行池上鐵路便當",
+        "叮哥茶飲池上店",
+        "小村滷味",
+        "大池豆皮店",
+        "大坡池",
+        "米國學校",
+        "宏昌客家菜館",
+        "新元昌紅茶產業文化館",
+        "大方來富莊園",
+        "正一茶園",
+        "國立臺灣史前文化博物館",
+        "史前館",
+        "榕樹下米苔目",
+        "THE GAYA",
+        "隱山茶道",
+        "鐵花新聚落",
+        "烏龍院家庭食堂"
+      ];
+
+      document.querySelectorAll("a.map").forEach((link) => {
+        const label = link.textContent.replace(/\s+/g, " ").trim();
+        if (actualVisitedTerms.some((term) => label.includes(term))) {
+          link.classList.add("actual-visited");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
