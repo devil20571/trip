@@ -23,3 +23,13 @@
 開啟對應行程網頁。
 
 若出現 `There isn't a GitHub Pages site here.`，代表 Pages 尚未啟用或還在部署中。
+
+## 取消發布
+
+不想再公開網頁時，同樣到 Pages 設定關閉：
+
+1. 打開：https://github.com/devil20571/trip/settings/pages
+2. **Source** 改回 **None**（或取消選取部署分支）
+3. 按 **Save**
+
+關閉後，`*.github.io` 網址會失效；repo 裡的檔案仍保留，不影響本機編輯與 GitHub 上的程式碼。
